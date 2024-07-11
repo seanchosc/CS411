@@ -1,0 +1,98 @@
+MANAGEMENT:
+
+Theme: Get GiggleGit demo into a stable enough alpha to start onboarding some adventurous clients
+Epic: Onboarding experience
+
+User Story 1:
+    As a vanilla git power-user that has never seen GiggleGit before, I want to understand
+    key basic functionalities of GiggleGit so that I can start using it immediately.
+
+    Task: Provide an introductory page with documentation and tutorials
+
+        Ticket 1: Create the documentation covering the key features and functionalities of GiggleGit.
+            Details: Provide an in-depth and detailed guide that shows the key features of GiggleGit
+                     and contrast with generic Git. Show key functionalities that will show users why
+                     one should use GiggleGit and how to use them.
+
+        Ticket 2: Separate from the user documentation, create a "demo" use of GiggleGit such that users
+                  can immediately get an understanding of how to use GiggleGit.
+            Details: Implement an interactive tutorial UI such that users can only interact with specific
+            features and pages that guides the user on what the GiggleGit experience may look like.
+            IE "Click here to view 'x', now click 'y'"
+
+User Story 2:
+    As a team lead onboarding an experienced GiggleGit user, I want to be able to integrate such users into
+    my team as easily as possible.
+
+    Task: Make the onboarding process as efficient as possible
+
+        Ticket 1: Within the presumably existing user database, create a branched database called "Friends"
+                  that stores different users that are friends.
+            Details: Create a friends feature and database that takes unique user ID's and pairs them as friends
+                    given that they have requested to add each other. Store said friend link into Friends database.
+                    Since there now exists a friends database, said "new experienced user" will be able to view
+                    recommended friends that are linked to people in the given user's friends list, thus making it
+                    slightly easier for them to see who they may be working with and quickly add them.
+
+        Ticket 2: Create a "Requirements" interface for a given project that outlines what the team lead has specified
+                  as necessary tasks to complete the initial setup for a new user specific to the project.
+            Details: Implement a UI that is within a teams project. This UI will show a list of tasks/requirements
+                     to complete specified by the team lead. Since not all users will be new, some experienced users
+                     may have certain things already completed. To account for this, we implement some sort of checking
+                     algorithm that can track what features/settings that a user has active, and what the team lead requires.
+                     It compares the two and only displays what the user still has to complete.
+
+User Story 3:
+    As an experienced user of GiggleGit, I want to be able to keep track of my progress so that I can feel accomplished
+    of my progress.
+
+    Theme: Improve user engagement and satisfaction
+    Epic: Progress tracking and accomplishment
+
+    Task: Implement progress tracking features.
+        Ticket 1: Create a to-do list feature that team leads can use to mark specific requirements/goals for a project
+            Details: Implement some sort of algorithm that detects key words in the team leads specified goals and requirements.
+                    Then store said key word(s) into a database. When a user completes a task or pushes something,
+                    the same algorithm will run to detect any key words in the message that the user wrote to commit a task.
+                    Then if any key words match, indicate to the team lead that "User x has made progress on task y" or
+                    "User z may have completed task j".
+
+        Ticket 2: Create an accomplishment feature that enhances user satisfaction.
+            Details:
+                Implementing the database mentioned in ticket 1, once a team lead verifies any progress a user has made,
+                the database will also store a boolean type variable that indicates whether a user has made progress or not.
+                We then take the remaining tasks that the user has not yet completed, and create a progress tracker that
+                shows how much progress the user has made. It will show specific accomplishments such as "team lead x
+                has verified your progress! y% further to the goal!"
+
+As a user I want to be able to authenticate on a new machine.
+    This is not a valid user story. This is because a user story outlines a specific goal of the user that
+    they are trying to achieve whereas a functional requirement -- which is what this statement is --, outlines specific
+    features that the user needs. This statement provides no explanation on the proposed benefits of said feature and
+    only states what the program must provide.
+
+REQUIREMENTS:
+
+Goal: Analyze the efficiency and functionality of SnickerSync through user studies.
+Non-Goal: Expand the integrability of SnickerSync such that it can be easily integrated with other systems.
+
+Non-Functional Requirement 1: User Studies Conductivity
+    Functional Requirement 1: Implement a program that, using random distribution, assigns users to a control group and
+                              variant groups and input said groups into a database. With these groups, after conducting
+                              user studies, input the report into the database for full easy access to the user study.
+    Functional Requirement 2: For PM's to easily view, maintain, and analyze different snickering concepts,
+                              take all or a given set of user studies, compile the data, and use an algorithm to determine
+                              overlapping key concepts/issues/successes/etc... such that PM's can view what they want,
+                              whenever they want.
+
+
+Non-Functional Requirement 2: Accessibility
+    Functional Requirement 1: Implement an "encapsulation" type of administrative control such that there are different
+                              roles with decreasing amounts of permissions and control. Highest level is PM, and each
+                              layer below has decreasing amounts of permissions and access.
+    Functional Requirement 2: To improve the efficiency and usability of access controls, implement a as part of the UI
+                              a clear indicator of access level (eg. role: PM). Furthermore, implement features such that
+                              when a user attempts an action that is beyond their level of access, allow the user that
+                              attempted access to send a request to team leads for temporary access. Team lead can approve
+                              such requests for a given amount of time, then access is automatically revoked after.
+
